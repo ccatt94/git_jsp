@@ -1,6 +1,10 @@
 package servlet_240809;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +29,18 @@ public class LottoNum extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().append("Hello");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		Set<Integer> lottoNum = new HashSet<>();
+		final int LOTTO = 6;
+
+		while (lottoNum.size() < LOTTO) {
+			int num = (int) (Math.random() * 45 + 1);
+			lottoNum.add(num);
+		}
+
+		out.print(lottoNum);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
