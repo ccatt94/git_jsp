@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>POST 전송</h1>
+	<!-- 국어, 영어 점수 전송시 서버에서 받아내기, 서버쪽 콘솔에서 전송값 표시됨 -->
+	<!-- action에 /hello 주소 -->
+	<form action= "hello" method="post">
+		국어:<input type="text" name="kor">
+		영어:<input type="text" name="eng">
+		<input type="submit" value="전송">
+	</form>
+	<hr>
+	<h1>Get 전송</h1>
+	<form action="hello" method="get">
+		<input type="submit" value="전송">
+	</form>
+	
+</body>
+</html>
