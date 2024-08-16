@@ -27,9 +27,6 @@ public class StarServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,17 +36,21 @@ public class StarServlet extends HttpServlet {
 		
 		int star = Integer.valueOf(request.getParameter("star"));
 		
-		for (int i = 1; i <= 5; i++) { 
+		for (int i = 1; i <= star; i++) { 
 			for (int j = 1; j <= i; j++) { 
 				out.print("*");
 			}
 			out.print("<br>");
 		}
 		
+		out.print("<hr>");
 		
-		
-		
-		
+		for (int i = 1; i <= star; i++) { 
+			for (int j = i; j <= star; j++) { 
+				out.print("*");
+			}
+			out.print("<br>");
+		}
 		
 	}
 

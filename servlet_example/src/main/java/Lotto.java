@@ -19,9 +19,7 @@ public class Lotto{
 			int num = (int) (Math.random()*45+1);
 			lottoSet.add(num);
 			
-//			for(int idx=0; idx<LOTTO; idx++) {
-//				lottoArr[idx] = lottoSet[idx];
-//			}
+
 			
 		}
 		
