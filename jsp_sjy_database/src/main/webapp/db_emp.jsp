@@ -17,7 +17,6 @@
 		//db접속 3종세트
 		Connection connection;
 		Statement statement;
-		
 		ResultSet rs;
 	
 		String driver = "oracle.jdbc.driver.OracleDriver";

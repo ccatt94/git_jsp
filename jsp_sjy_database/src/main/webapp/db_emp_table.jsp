@@ -1,8 +1,3 @@
-<%@page import="java.sql.Date"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
@@ -14,11 +9,10 @@
 </head>
 <body>
 	<%
-		//db접속 3종세트
 		Connection connection;
 		Statement statement;
 		ResultSet rs;
-	
+		
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String uid = "scott";
@@ -28,41 +22,43 @@
 		
 		try{
 			
-			Class.forName(driver);
+			Class.forName("driver");
 			connection = DriverManager.getConnection(url, uid, upw);
 			statement = connection.createStatement();
-			rs = statement.executeQuery(query);
+			rs = statement.excuteQuery(query);
 			
 			while(rs.next()){
-				
 				
 				int empno = rs.getInt("empno");
 				String ename = rs.getString("ename");
 				String job = rs.getString("job");
-				String mgr = rs.getString("mgr");
+				int mgr = rs.getInt("mgr");
 				Date hiredate = rs.getDate("hiredate");
 				int sal = rs.getInt("sal");
 				String comm = rs.getString("comm");
 				int deptno = rs.getInt("deptno");
 				
-				
-				
 				out.print("사원번호 : " + empno + "&nbsp");
 				out.print("사원이름 : " + ename + "&nbsp");
 				out.print("직종 : " + job + "&nbsp");
-				out.print("매니져 : " + mgr + "&nbsp");
-				out.print("입사날짜 : " + hiredate + "&nbsp");
-				out.print("월급 : " + sal + "&nbsp");
+				out.print("매니저 : " + mgr + "&nbsp");
+				out.print("입사일 : " + hiredate + "&nbsp");
+				out.print("급여 : " + sal + "&nbsp");
 				out.print("성과급 : " + comm + "&nbsp");
 				out.print("부서번호 : " + deptno + "&nbsp");
-				out.print("<br>");
-				
+				out.print("<br>")
 				
 			}
 			
 			
-		}catch(Exception e){}
-		finally{}
+			
+			
+			
+			
+			
+			
+		}catch(Exception e){
+		}finally{}
 		
 		
 		
