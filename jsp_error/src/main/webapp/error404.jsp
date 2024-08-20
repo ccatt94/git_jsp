@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page errorPage="errorPage.jsp"%>
+<%@ page isErrorPage="true" %>
+<% response.setStatus(200); %>
 
 <!DOCTYPE html>
 <html>
@@ -9,9 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		int i = 40 / 0;
 
-	%>
+	<h1>404 에러입니다.</h1>
+
 </body>
 </html>
