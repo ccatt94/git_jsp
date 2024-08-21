@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSetMetaData"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -33,8 +34,19 @@
 			statement = connection.createStatement();
 			rs = statement.executeQuery(query);
 			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			
+			
+			out.print("<table border='1'>");
+			out.print("<tr>");
+			
+			for(int i=1; i <=  rsmd.getColumnCount();i++){
+				out.print("<td>" + rsmd.getColumnName(i) + "</td>");
+			}
+			
+			out.print("<tr>");
+			
 			while(rs.next()){
-				
 				
 				int empno = rs.getInt("empno");
 				String ename = rs.getString("ename");
@@ -47,22 +59,27 @@
 				
 				
 				
-				out.print("사원번호 : " + empno + "&nbsp");
-				out.print("사원이름 : " + ename + "&nbsp");
-				out.print("직종 : " + job + "&nbsp");
-				out.print("매니져 : " + mgr + "&nbsp");
-				out.print("입사날짜 : " + hiredate + "&nbsp");
-				out.print("월급 : " + sal + "&nbsp");
-				out.print("성과급 : " + comm + "&nbsp");
-				out.print("부서번호 : " + deptno + "&nbsp");
-				out.print("<br>");
+				out.print("<tr>");
 				
+				out.print("<td>" + empno + "</td>");
+				out.print("<td>" + ename + "</td>");
+				out.print("<td>" + job + "</td>");
+				out.print("<td>" + mgr + "</td>");
+				out.print("<td>" + hiredate + "</td>");
+				out.print("<td>" + sal + "</td>");
+				out.print("<td>" + comm + "</td>");
+				out.print("<td>" + deptno + "</td>");
+				
+				out.print("</tr>");
 				
 			}
 			
+			out.print("</table>");
 			
 		}catch(Exception e){}
-		finally{}
+		finally{
+			
+		}
 		
 		
 		

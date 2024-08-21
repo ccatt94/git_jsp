@@ -1,3 +1,8 @@
+<%@page import="java.sql.Date"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
@@ -22,10 +27,10 @@
 		
 		try{
 			
-			Class.forName("driver");
+			Class.forName(driver);
 			connection = DriverManager.getConnection(url, uid, upw);
 			statement = connection.createStatement();
-			rs = statement.excuteQuery(query);
+			rs = statement.executeQuery(query);
 			
 			while(rs.next()){
 				
@@ -46,19 +51,15 @@
 				out.print("급여 : " + sal + "&nbsp");
 				out.print("성과급 : " + comm + "&nbsp");
 				out.print("부서번호 : " + deptno + "&nbsp");
-				out.print("<br>")
+				out.print("<br>");
 				
 			}
 			
 			
 			
 			
-			
-			
-			
-			
-		}catch(Exception e){
-		}finally{}
+		}catch(Exception e){}
+		finally{}
 		
 		
 		
