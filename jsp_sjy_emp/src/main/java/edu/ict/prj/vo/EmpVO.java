@@ -11,6 +11,7 @@ public class EmpVO {
 	private int sal;
 	private int comm;
 	private int deptno;
+	private int num;
 	
 	public EmpVO() {}
 
@@ -92,6 +93,8 @@ public class EmpVO {
 		this.deptno = deptno;
 	}
 
-	
+	public int getNum() {
+		return (int) (Math.random()*6+1);
+	}
 	
 }
