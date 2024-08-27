@@ -1,17 +1,20 @@
-jQuery(function($) {'use strict',
+jQuery(function($) {
+    'use strict';
 
-	var form = $('.contact-form');
-	form.submit(function () {'use strict',
-		$this = $(this);
-		$.post("sendemail.php", $(".contact-form").serialize(),function(result){
-			if(result.type == 'success'){
-				$this.prev().text(result.message).fadeIn().delay(3000).fadeOut();
-			}
-		});
-		return false;
-	});
+    let form = $('.contact-form');
+    form.submit(function (event) {
+        'use strict';
+        event.preventDefault(); // 기본 제출 막기
 
+        let $this = $(this);
+        $.post("sendemail.php", $this.serialize(), function(result) {
+            if(result.type === 'success') {
+                $this.prev().text(result.message).fadeIn().delay(3000).fadeOut();
+            }
+        });
+    });
 });
+
 
 // Google Map Customization
 (function(){
