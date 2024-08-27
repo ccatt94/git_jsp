@@ -13,6 +13,10 @@ import edu.ict.prj.command.BoardCommand;
 import edu.ict.prj.command.BoardContentCommand;
 import edu.ict.prj.command.BoardDeleteCommand;
 import edu.ict.prj.command.BoardListCommand;
+import edu.ict.prj.command.BoardModifyCommand;
+import edu.ict.prj.command.BoardReplyCommand;
+import edu.ict.prj.command.BoardReplyViewCommand;
+import edu.ict.prj.command.BoardWriteCommand;
 
 @WebServlet("*.do")
 public class BoardController extends HttpServlet {
@@ -65,7 +69,28 @@ public class BoardController extends HttpServlet {
 			command = new BoardDeleteCommand();
 			command.execute(request, response);
 			viewPage = "list.do";
+		}else if(com.equals("/write_view.do")) { //http:localhost:8282/jsp_sjy_board/write_view.do
+			viewPage = "write_view.jsp";
+		}else if(com.equals("/write.do")) { //http:localhost:8282/jsp_sjy_board/write.do
+			command = new BoardWriteCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
+		}else if(com.equals("/reply_view.do")) { // http://localhost:8282/jsp_sjy_board/reply_view.do?bid=20
+			command = new BoardReplyViewCommand();
+			command.execute(request, response);
+			viewPage = "reply_view.jsp";
+		}else if(com.equals("/reply.do")) { // http://localhost:8282/jsp_sjy_board/reply.do
+			command = new BoardReplyCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
+		}else if(com.equals("/modify.do")) { // http://localhost:8282/jsp_sjy_board/modify.do
+			command = new BoardModifyCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
 		}
+		
+		
+		
 		
 		
 		

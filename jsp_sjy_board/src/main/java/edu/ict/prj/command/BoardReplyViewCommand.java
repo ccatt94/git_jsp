@@ -4,18 +4,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ict.prj.dao.BoardDao;
+import edu.ict.prj.vo.BoardVO;
 
-public class BoardDeleteCommand implements BoardCommand {
+public class BoardReplyViewCommand implements BoardCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		//http:localhost:8282/jsp_sjy_board/delete.do?bid=1
-		
 		String bid = request.getParameter("bid");
+		
 		BoardDao dao = new BoardDao();
-		int rn = dao.delete(bid);
-		System.out.println("»èÁ¦µÈ °¹¼ö:" + rn);
+		
+		BoardVO boardVO = dao.replyView(bid);
+		
+		request.setAttribute("reply_view", boardVO);
+		
 	}
 
 }
