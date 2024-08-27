@@ -1,14 +1,17 @@
 package edu.ict.prj.vo;
 
-public class VoteVO {
+public class MemberVO {
 	private String m_no;
 	private String m_name;
 	private String p_code;
 	private String p_school;
 	private String m_jumin;
 	private String m_city;
+	private String p_tel;
 	
-	public VoteVO(String m_no, String m_name, String p_code, String p_school, String m_jumin, String m_city) {
+	public MemberVO() {}
+	
+	public MemberVO(String m_no, String m_name, String p_code, String p_school, String m_jumin, String m_city, String p_tel) {
 		super();
 		this.m_no = m_no;
 		this.m_name = m_name;
@@ -16,6 +19,7 @@ public class VoteVO {
 		this.p_school = p_school;
 		this.m_jumin = m_jumin;
 		this.m_city = m_city;
+		this.p_tel = p_tel;
 	}
 
 	public String getM_no() {
@@ -64,6 +68,14 @@ public class VoteVO {
 
 	public void setM_city(String m_city) {
 		this.m_city = m_city;
+	}
+
+	public String getP_tel() {
+		return p_tel;
+	}
+
+	public void setP_tel(String p_tel) {
+		this.p_tel = p_tel;
 	}
 	
 	

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ict.prj.dao.VoteDao;
-import edu.ict.prj.vo.VoteVO;
+import edu.ict.prj.vo.MemberVO;
 
 public class VoteListCommand implements VoteCommand {
 
@@ -14,26 +14,9 @@ public class VoteListCommand implements VoteCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
 		VoteDao dao = new VoteDao();
-		ArrayList<VoteVO> voteList = dao.list();
-		String school = null;
-		
-		for(int i = 0; i < voteList.size(); i++){
-			VoteVO v = voteList.get(i);
-			
-			
-			if(v.getP_school().equals("1")) {
-				school = "고졸";
-			}else if(v.getP_school().equals("2")) {
-				school = "학사";
-			}else if(v.getP_school().equals("3")) {
-				school = "석사";
-			}else {
-				school = "박사";
-			}
-		}
+		ArrayList<MemberVO> voteList = dao.showAll();
 		
 		request.setAttribute("voteList", voteList);
-		request.setAttribute("school", school);
 		
 	}
 

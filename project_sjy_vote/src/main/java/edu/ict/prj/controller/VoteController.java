@@ -51,12 +51,15 @@ public class VoteController extends HttpServlet {
 		String com = uri.substring(contextPath.length());
 		System.out.println(uri + ":" + contextPath + ":" + com);
 		
-		if(com.equals("/list.do")) {
+		if(com.equals("/index.do")) {
 			command = new VoteListCommand();
 			command.execute(request, response);
-			viewPage = "list.jsp";
+			viewPage = "index.jsp";
+		}else if(com.equals("/vote_inquiry.do")) {
+			command = new VoteListCommand();
+			command.execute(request, response);
+			viewPage = "vote_inquiry.jsp";
 		}
-		
 		
 		
 		

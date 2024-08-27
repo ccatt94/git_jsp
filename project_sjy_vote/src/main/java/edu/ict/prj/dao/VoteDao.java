@@ -3,14 +3,13 @@ package edu.ict.prj.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import edu.ict.prj.vo.VoteVO;
+import edu.ict.prj.vo.MemberVO;
 
 public class VoteDao {
 
@@ -25,14 +24,20 @@ public class VoteDao {
 		}
 	}
 
-	public ArrayList<VoteVO> list() {
-		ArrayList<VoteVO> voteList = new ArrayList<VoteVO>();
+	public ArrayList<MemberVO> showAll() {
+		
+		ArrayList<MemberVO> voteList = new ArrayList<MemberVO>();
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 
-		String sql = "select * from tbl_member_202005";
+		String sql = "select m_no, m_name, m1.p_code,"
+					+ " p_name, p_school, substr(m_jumin,1,6)||'-'||substr(m_jumin,7,7) m_jumin,"
+					+ " m_city, p_tel1, p_tel2, p_tel3"
+					+ " from tbl_member_202005 m1,"
+					+ " tbl_party_202005 p1"
+					+ " where m1.p_code = p1.p_code";
 
 		try {
 
@@ -41,17 +46,19 @@ public class VoteDao {
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
-
+				
 				String m_no = resultSet.getString("m_no");
 				String m_name = resultSet.getString("m_name");
 				String p_code = resultSet.getString("p_code");
 				String p_school = resultSet.getString("p_school");
 				String m_jumin = resultSet.getString("m_jumin");
 				String m_city = resultSet.getString("m_city");
-
-				VoteVO vote = new VoteVO(m_no, m_name, p_code, p_school, m_jumin, m_city);
-
-				voteList.add(vote);
+				
+				String tel = resultSet.getString("p_tel1") + "-" + resultSet.getString("p_tel2") + "-" + resultSet.getString("p_tel3");
+				
+				MemberVO m = new MemberVO(m_no, m_name, p_code, p_school, m_jumin, m_city, tel);
+				
+				voteList.add(m);
 
 			}
 
@@ -80,4 +87,6 @@ public class VoteDao {
 		return voteList;
 
 	}
+	
+
 }
