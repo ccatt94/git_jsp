@@ -18,7 +18,7 @@ public class VoteDao {
 	public VoteDao() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -38,12 +38,16 @@ public class VoteDao {
 					+ " from tbl_member_202005 m1,"
 					+ " tbl_party_202005 p1"
 					+ " where m1.p_code = p1.p_code";
+		
+//		String sql = "select * from TBL_MEMBER_202005";
 
 		try {
 
 			connection = dataSource.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();
+			
+			System.out.println(resultSet.toString());
 
 			while (resultSet.next()) {
 				

@@ -90,6 +90,8 @@ public class BoardDao {
 	
 	public BoardVO getBoard(String id) {
 		
+		//upHit(id);
+		
 		BoardVO board = null;
 		
 		Connection connection = null;
@@ -444,6 +446,46 @@ public class BoardDao {
 
 	}
 	
-	
+	public int upHit(String id) { 
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		String sql = "update mvc_board set bhit = bhit + 1 where bid = ?";
+		
+		int rn = 0;
+		
+		try{
+			
+			connection = dataSource.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, Integer.valueOf(id));  //sql의 첫번째 물음표에 id값 넣음
+			rn = preparedStatement.executeUpdate();
+			
+		}catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}finally {
+			
+			try {
+		            
+		         if(preparedStatement != null) 
+		        	 preparedStatement.close();
+		            
+		         if(connection != null) 
+		            connection.close();
+				
+			}catch (Exception e2) {
+
+			}
+			
+		}
+		
+		
+		return rn;
+		
+	}
 	
 }
