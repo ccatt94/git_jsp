@@ -29,27 +29,27 @@
 		
 		
 		
-		<c:forEach var="vote" items="${voteList}">
+		<c:forEach var="member" items="${memberList}">
+		
 		<tr align="center">
-			<td align="center">${vote.m_no}</td>
-			<td align="center">${vote.m_name}</td>
-			<td align="center">${vote.p_code}</td>
+			<td align="center">${member.m_no}</td>
+			<td align="center">${member.m_name}</td>
+			<td align="center">${member.p_code}</td>
 			
 			<td align="center">
 			<c:choose>
-			<c:when test="${vote.p_school=='1'}">고졸</c:when>
-			<c:when test="${vote.p_school=='2'}">학사</c:when>
-			<c:when test="${vote.p_school=='3'}">석사</c:when>
+			<c:when test="${member.p_school=='1'}">고졸</c:when>
+			<c:when test="${member.p_school=='2'}">학사</c:when>
+			<c:when test="${member.p_school=='3'}">석사</c:when>
 			<c:otherwise>박사</c:otherwise>
 			</c:choose>
 			</td>
 			
-			<td align="center">${vote.m_jumin}</td>
-			<td align="center">${vote.m_city}</td>
-			<td align="center">${vote.p_tel}</td>
-			
-		
+			<td align="center">${member.m_jumin}</td>
+			<td align="center">${member.m_city}</td>
+			<td align="center">${member.p_tel}</td>
 		</tr>
+		
 		</c:forEach>
 		
 		

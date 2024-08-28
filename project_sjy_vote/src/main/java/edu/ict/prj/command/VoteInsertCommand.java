@@ -1,4 +1,4 @@
-package edu.ict.prj.controller;
+package edu.ict.prj.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -142,6 +142,11 @@ public class VoteDao {
 		return rn;
 		
 	}
+
+	public ArrayList<VoteVO> showVoteList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }
