@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import edu.ict.prj.dao.VoteDao;
 import edu.ict.prj.vo.MemberVO;
 
-public class VoteListCommand implements VoteCommand {
+public class VoteMemberCommand implements VoteCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
 		VoteDao dao = new VoteDao();
-		ArrayList<MemberVO> voteList = dao.showAll();
+		ArrayList<MemberVO> voteList = dao.showMember();
 		
 		request.setAttribute("voteList", voteList);
 		

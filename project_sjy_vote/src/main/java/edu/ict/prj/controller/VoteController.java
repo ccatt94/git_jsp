@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ict.prj.command.VoteCommand;
-import edu.ict.prj.command.VoteListCommand;
+import edu.ict.prj.command.VoteMemberCommand;
 
 @WebServlet("*.do")
 public class VoteController extends HttpServlet {
@@ -52,17 +52,19 @@ public class VoteController extends HttpServlet {
 		System.out.println(uri + ":" + contextPath + ":" + com);
 		
 		if(com.equals("/index.do")) {
-			command = new VoteListCommand();
+			command = new VoteMemberCommand();
 			command.execute(request, response);
 			viewPage = "index.jsp";
-		}else if(com.equals("/vote_inquiry.do")) {
-			command = new VoteListCommand();
+		} else if(com.equals("/member.do")) {
+			command = new VoteMemberCommand();
 			command.execute(request, response);
-			viewPage = "vote_inquiry.jsp";
-		} else if (com.equals("/vote_voting.do")) {
-			command = new VoteListCommand();
+			viewPage = "member.jsp";
+		} else if (com.equals("/vote.do")) {
+			viewPage = "vote.jsp";
+		} else if (com.equals("/vote_ok.do")) {
+			command = new VoteInsertCommand();
 			command.execute(request, response);
-			viewPage = "vote_voting.jsp";
+			viewPage = "index.jsp";
 		}
 		
 		
