@@ -6,17 +6,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ict.prj.dao.VoteDao;
-import edu.ict.prj.vo.VoteVO;
+import edu.ict.prj.vo.RankVO;
 
-public class VoteListCommand implements VoteCommand {
+public class VoteRankCommand implements VoteCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		VoteDao dao = new VoteDao();
-		List<VoteVO> voteList = dao.showVoteList();
+		List<RankVO> rank = dao.memberRank();
 		
-		request.setAttribute("voteList", voteList);
+		request.setAttribute("rank", rank);
 		
 	}
 

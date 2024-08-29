@@ -5,12 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import edu.ict.prj.vo.MemberVO;
+import edu.ict.prj.vo.RankVO;
 import edu.ict.prj.vo.VoteVO;
 
 public class VoteDao {
@@ -20,15 +22,16 @@ public class VoteDao {
 	public VoteDao() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
+//			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public ArrayList<MemberVO> showMember() {
+	public List<MemberVO> showMember() {
 		
-		ArrayList<MemberVO> memberList = new ArrayList<MemberVO>();
+		List<MemberVO> memberList = new ArrayList<MemberVO>();
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -144,9 +147,9 @@ public class VoteDao {
 		
 	}
 
-	public ArrayList<VoteVO> showVoteList() {
+	public List<VoteVO> showVoteList() {
 		
-		ArrayList<VoteVO> voteList = new ArrayList<VoteVO>();
+		List<VoteVO> voteList = new ArrayList<VoteVO>();
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -246,6 +249,61 @@ public class VoteDao {
 		}
 
 		return voteList;
+	}
+
+	public List<RankVO> memberRank() {
+		List<RankVO> rankList = new ArrayList<RankVO>();
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		String sql = "select v.m_no, m_name, v_confirm from tbl_vote_202005 v, tbl_member_202005 m where v.m_no = m.m_no;";
+		
+
+		try {
+
+			connection = dataSource.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			
+			System.out.println(resultSet.toString());
+
+			while (resultSet.next()) {
+				
+				String m_no = resultSet.getString("m_no");
+				String m_name = resultSet.getString("m_name");
+				String v_count = resultSet.getString("v_confirm");
+				
+				RankVO r = new RankVO(m_no, m_name, v_count);
+				
+				rankList.add(r);
+
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+				if (resultSet != null)
+					resultSet.close();
+
+				if (preparedStatement != null)
+					preparedStatement.close();
+
+				if (connection != null)
+					connection.close();
+
+			} catch (Exception e2) {
+
+			}
+
+		}
+
+		return rankList;
 	}
 	
 

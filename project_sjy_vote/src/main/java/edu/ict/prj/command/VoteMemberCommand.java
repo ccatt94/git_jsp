@@ -1,6 +1,6 @@
 package edu.ict.prj.command;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ public class VoteMemberCommand implements VoteCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
 		VoteDao dao = new VoteDao();
-		ArrayList<MemberVO> memberList = dao.showMember();
+		List<MemberVO> memberList = dao.showMember();
 		
 		request.setAttribute("memberList", memberList);
 		

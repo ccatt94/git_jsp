@@ -13,6 +13,7 @@ import edu.ict.prj.command.VoteCommand;
 import edu.ict.prj.command.VoteInsertCommand;
 import edu.ict.prj.command.VoteListCommand;
 import edu.ict.prj.command.VoteMemberCommand;
+import edu.ict.prj.command.VoteRankCommand;
 
 @WebServlet("*.do")
 public class VoteController extends HttpServlet {
@@ -71,6 +72,10 @@ public class VoteController extends HttpServlet {
 			command = new VoteListCommand();
 			command.execute(request, response);
 			viewPage = "voteList.jsp";
+		}else if(com.equals("/memberRank.do")) {
+			command = new VoteRankCommand();
+			command.execute(request, response);
+			viewPage = "memberRank.jsp";
 		}
 		
 		

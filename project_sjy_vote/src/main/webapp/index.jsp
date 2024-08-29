@@ -17,7 +17,7 @@
 	<a href=member.do>후보조회</a> &emsp; 
 	<a href=vote.do>투표하기</a> &emsp;
 	<a href=voteList.do>투표검수조회</a> &emsp;
-	<a href=hrd04.jsp>후보자등수</a> &emsp;
+	<a href=memberRank.do>후보자등수</a> &emsp;
 	<a href=index.do>홈으로</a>
 	
 	
