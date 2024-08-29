@@ -66,7 +66,7 @@ public class VoteController extends HttpServlet {
 		}else if(com.equals("/vote_ok.do")) {
 			command = new VoteInsertCommand();
 			command.execute(request, response);
-			viewPage = "index.jsp";
+			viewPage = "index.do";
 		}else if(com.equals("/voteList.do")) {
 			command = new VoteListCommand();
 			command.execute(request, response);

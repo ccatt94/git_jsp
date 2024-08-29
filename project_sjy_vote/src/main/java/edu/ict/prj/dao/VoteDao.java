@@ -3,6 +3,7 @@ package edu.ict.prj.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -27,7 +28,7 @@ public class VoteDao {
 
 	public ArrayList<MemberVO> showMember() {
 		
-		ArrayList<MemberVO> voteList = new ArrayList<MemberVO>();
+		ArrayList<MemberVO> memberList = new ArrayList<MemberVO>();
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -62,7 +63,7 @@ public class VoteDao {
 				
 				MemberVO m = new MemberVO(m_no, m_name, p_code, p_school, m_jumin, m_city, tel);
 				
-				voteList.add(m);
+				memberList.add(m);
 
 			}
 
@@ -88,7 +89,7 @@ public class VoteDao {
 
 		}
 
-		return voteList;
+		return memberList;
 
 	}
 
@@ -144,8 +145,107 @@ public class VoteDao {
 	}
 
 	public ArrayList<VoteVO> showVoteList() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<VoteVO> voteList = new ArrayList<VoteVO>();
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		String sql = "select * from tbl_vote_202005";
+		
+
+		try {
+
+			connection = dataSource.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			
+			System.out.println(resultSet.toString());
+
+			while (resultSet.next()) {
+				
+				String v_name = resultSet.getString("v_name");
+				String v_jumin = resultSet.getString("v_jumin");
+				
+				if(v_jumin.substring(0, 1)!="0") {
+					v_jumin = "19" + v_jumin.substring(0, 2) + "년" 
+								   + v_jumin.substring(2, 4) + "월" 
+								   + v_jumin.substring(4, 6) + "일생";
+				}else {
+					v_jumin = "20" + v_jumin.substring(0, 2) + "년" 
+								   + v_jumin.substring(2, 4) + "월" 
+								   + v_jumin.substring(4, 6) + "일생";
+				}
+				
+				String v_age = resultSet.getString("v_jumin").substring(0, 2);
+				LocalDate now = LocalDate.now();
+				
+				if(v_age.substring(0, 2)!="0") {
+					
+					try{
+					int age = 1900 + Integer.parseInt(resultSet.getString("v_jumin").substring(0, 2));
+					age = now.getYear() - age;
+					v_age = "만 " + String.valueOf(age) + "세";
+					}catch(Exception e) {}
+					
+				}else {
+					
+					try{
+					int age = 2000 + Integer.parseInt(resultSet.getString("v_jumin").substring(0, 2));
+					age = now.getYear() - age;
+					v_age = "만 " + String.valueOf(age) + "세";
+					}catch(Exception e) {}
+					
+				}
+					
+				String v_sex = resultSet.getString("v_jumin");
+				
+				if(v_sex.substring(6, 7).equals("1") || v_sex.substring(6, 7).equals("3")) {
+					v_sex = "남";
+				}else if(v_sex.substring(6, 7).equals("2") || v_sex.substring(6, 7).equals("4")) {
+					v_sex = "여";
+				}
+				
+				String m_no = resultSet.getString("m_no");
+				String v_time = resultSet.getString("v_time").substring(0, 2) + " : " + resultSet.getString("v_time").substring(2, 4);
+				String v_confirm = resultSet.getString("v_confirm");
+				
+				if(v_confirm.equals("Y")) {
+					v_confirm = "확인";
+				}else {
+					v_confirm = "미확인";
+				}
+				
+				VoteVO m = new VoteVO(v_name, v_jumin, v_age, v_sex, m_no, v_time, v_confirm);
+				
+				voteList.add(m);
+
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+				if (resultSet != null)
+					resultSet.close();
+
+				if (preparedStatement != null)
+					preparedStatement.close();
+
+				if (connection != null)
+					connection.close();
+
+			} catch (Exception e2) {
+
+			}
+
+		}
+
+		return voteList;
 	}
 	
 

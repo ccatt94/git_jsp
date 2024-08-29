@@ -31,7 +31,7 @@
 	<h1>투표지</h1>
 
 	<table width="500" height="400" cellpadding="0" cellspacing="0" border="1">
-
+	<form action="vote_ok.do" method="post" onsubmit="handleSubmit(event)">
 		<tr>
 			<td align="center">주민번호</td>
 			<td>&nbsp; 
@@ -57,7 +57,7 @@
 					<option value="3">기호 3번 박후보</option>
 					<option value="4">기호 4번 조후보</option>
 					<option value="5">기호 5번 최후보</option>
-			</select>
+				</select>
 
 			</td>
 		</tr>
@@ -65,14 +65,22 @@
 		<tr>
 			<td align="center">투표시간</td>
 			<td>
-				<input required type="text" name="v_time">
+				<select name=v_time>
+					<option value="" selected disabled>시간 선택</option>
+					<option value="0930">오전 9시 30분</option>
+					<option value="1330">오후 1시 30분</option>
+				</select>
 			</td>
 		</tr>
 
 		<tr>
 			<td align="center">투표장소</td>
 			<td>
-				<input type="text" name="v_area">
+				<select name=v_area>
+					<option value="" selected disabled>장소 선택</option>
+					<option value="제1투표장">제1투표장</option>
+					<option value="제2투표장">제2투표장</option>
+				</select>
 			</td>
 		</tr>
 
@@ -91,11 +99,11 @@
 			</td>
 
 		</tr>
-		
+	</form>
 	</table>
 
-	<form action="vote_ok.do" method="post" onsubmit="handleSubmit(event)">
-	</form>
+	
+	
 
 
 </body>

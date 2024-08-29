@@ -8,6 +8,8 @@ public class VoteVO {
 	private String v_time;
 	private String v_area;
 	private String v_confirm;
+	private String v_age;
+	private String v_sex;
 	
 	public VoteVO() {}
 
@@ -18,6 +20,17 @@ public class VoteVO {
 		this.m_no = m_no;
 		this.v_time = v_time;
 		this.v_area = v_area;
+		this.v_confirm = v_confirm;
+	}
+
+	public VoteVO(String v_name, String v_jumin, String v_age, String v_sex, String m_no, String v_time,
+			String v_confirm) {
+		this.v_name = v_name;
+		this.v_jumin = v_jumin;
+		this.v_age = v_age;
+		this.v_sex = v_sex;
+		this.m_no = m_no;
+		this.v_time = v_time;
 		this.v_confirm = v_confirm;
 	}
 
@@ -67,6 +80,22 @@ public class VoteVO {
 
 	public void setV_confirm(String v_confirm) {
 		this.v_confirm = v_confirm;
+	}
+
+	public String getV_age() {
+		return v_age;
+	}
+
+	public void setV_age(String v_age) {
+		this.v_age = v_age;
+	}
+
+	public String getV_sex() {
+		return v_sex;
+	}
+
+	public void setV_sex(String v_sex) {
+		this.v_sex = v_sex;
 	}
 	
 	

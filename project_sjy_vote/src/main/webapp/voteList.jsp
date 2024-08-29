@@ -17,22 +17,24 @@
 	<table width="800" border="1">
 
 		<tr>
-			<td align="center">주민번호</td>
 			<td align="center">성명</td>
-			<td align="center">투표번호</td>
+			<td align="center">생년월일</td>
+			<td align="center">나이</td>
+			<td align="center">성별</td>
+			<td align="center">후보번호</td>
 			<td align="center">투표시간</td>
-			<td align="center">투표장소</td>
 			<td align="center">유권자확인</td>
 		</tr>
 		
 		<c:forEach var="vote" items="${voteList}">
 		<tr align="center">
 		
-			<td align="center">${vote.v_jumin}</td>
 			<td align="center">${vote.v_name}</td>
+			<td align="center">${vote.v_jumin}</td>
+			<td align="center">${vote.v_age}</td>
+			<td align="center">${vote.v_sex}</td>
 			<td align="center">${vote.m_no}</td>
 			<td align="center">${vote.v_time}</td>
-			<td align="center">${vote.v_area}</td>
 			<td align="center">${vote.v_confirm}</td>
 			
 		</tr>
