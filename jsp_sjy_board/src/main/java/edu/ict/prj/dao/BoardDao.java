@@ -368,7 +368,7 @@ public class BoardDao {
 			
 			preparedStatement.setInt(4, Integer.valueOf(bgroup));  
 			preparedStatement.setInt(5, Integer.valueOf(bstep) + 1);  
-			preparedStatement.setInt(6, Integer.valueOf(bindent) + 1);  
+			preparedStatement.setInt(6, Integer.parseInt(bindent) + 1);  
 
 			rn = preparedStatement.executeUpdate();
 			

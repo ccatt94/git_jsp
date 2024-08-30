@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +25,8 @@ public class VoteDao {
 	public VoteDao() {
 		try {
 			Context context = new InitialContext();
-//			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
+//			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -154,6 +157,9 @@ public class VoteDao {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
+		
+        DateTimeFormatter birthdayFormatter = DateTimeFormatter.ofPattern("yyMMdd");
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
 
 		String sql = "select * from tbl_vote_202005";
 		
@@ -169,49 +175,27 @@ public class VoteDao {
 			while (resultSet.next()) {
 				
 				String v_name = resultSet.getString("v_name");
-				String v_jumin = resultSet.getString("v_jumin");
-				
-				if(v_jumin.substring(0, 1)!="0") {
-					v_jumin = "19" + v_jumin.substring(0, 2) + "년" 
-								   + v_jumin.substring(2, 4) + "월" 
-								   + v_jumin.substring(4, 6) + "일생";
-				}else {
-					v_jumin = "20" + v_jumin.substring(0, 2) + "년" 
-								   + v_jumin.substring(2, 4) + "월" 
-								   + v_jumin.substring(4, 6) + "일생";
-				}
-				
-				String v_age = resultSet.getString("v_jumin").substring(0, 2);
-				LocalDate now = LocalDate.now();
-				
-				if(v_age.substring(0, 2)!="0") {
-					
-					try{
-					int age = 1900 + Integer.parseInt(resultSet.getString("v_jumin").substring(0, 2));
-					age = now.getYear() - age;
-					v_age = "만 " + String.valueOf(age) + "세";
-					}catch(Exception e) {}
-					
-				}else {
-					
-					try{
-					int age = 2000 + Integer.parseInt(resultSet.getString("v_jumin").substring(0, 2));
-					age = now.getYear() - age;
-					v_age = "만 " + String.valueOf(age) + "세";
-					}catch(Exception e) {}
-					
-				}
-					
-				String v_sex = resultSet.getString("v_jumin");
-				
-				if(v_sex.substring(6, 7).equals("1") || v_sex.substring(6, 7).equals("3")) {
-					v_sex = "남";
-				}else if(v_sex.substring(6, 7).equals("2") || v_sex.substring(6, 7).equals("4")) {
-					v_sex = "여";
-				}
-				
-				String m_no = resultSet.getString("m_no");
-				String v_time = resultSet.getString("v_time").substring(0, 2) + " : " + resultSet.getString("v_time").substring(2, 4);
+                String birthday = resultSet.getString("V_JUMIN").substring(0, 6);
+
+                LocalDate birthDate;
+                try {
+                    // 생년월일 처리
+                    int year = Integer.parseInt(birthday.substring(0, 2));
+                    int month = Integer.parseInt(birthday.substring(2, 4));
+                    int day = Integer.parseInt(birthday.substring(4, 6));
+
+                    year = year >= 0 && year <= 21 ? year + 2000 : year + 1900;
+
+                    birthDate = LocalDate.of(year, month, day);
+                } catch (DateTimeParseException | NumberFormatException e) {
+                    e.printStackTrace();
+                    continue;
+                }
+
+                LocalDate now = LocalDate.now();
+
+                String age = String.valueOf(Period.between(birthDate, now).getYears());
+                String gender = resultSet.getString("V_JUMIN").length() > 6 && resultSet.getString("V_JUMIN").charAt(6) == '1' ? "남" : "여";
 				String v_confirm = resultSet.getString("v_confirm");
 				
 				if(v_confirm.equals("Y")) {
@@ -220,7 +204,7 @@ public class VoteDao {
 					v_confirm = "미확인";
 				}
 				
-				VoteVO m = new VoteVO(v_name, v_jumin, v_age, v_sex, m_no, v_time, v_confirm);
+				VoteVO m = new VoteVO(v_name, birthDate.format(outputFormatter), age, gender, resultSet.getString("M_NO"), resultSet.getString("V_TIME"), v_confirm);
 				
 				voteList.add(m);
 
@@ -252,13 +236,15 @@ public class VoteDao {
 	}
 
 	public List<RankVO> memberRank() {
-		List<RankVO> rankList = new ArrayList<RankVO>();
+		List<RankVO> rankList = new ArrayList<>();
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 
-		String sql = "select v.m_no, m_name, v_confirm from tbl_vote_202005 v, tbl_member_202005 m where v.m_no = m.m_no;";
+		String sql = "select m1.m_no, m_name, count(*) v_confirm from tbl_vote_202005 v1, tbl_member_202005 m1 "
+				   + "where v1.m_no = m1.m_no and v_confirm='Y' group by m1.m_no, m_name "
+				   + "order by v_confirm desc";
 		
 
 		try {
@@ -274,6 +260,10 @@ public class VoteDao {
 				String m_no = resultSet.getString("m_no");
 				String m_name = resultSet.getString("m_name");
 				String v_count = resultSet.getString("v_confirm");
+				
+				System.out.println(m_no);
+				System.out.println(m_name);
+				System.out.println(v_count);
 				
 				RankVO r = new RankVO(m_no, m_name, v_count);
 				

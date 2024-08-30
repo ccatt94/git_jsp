@@ -16,6 +16,8 @@ public class VoteRankCommand implements VoteCommand {
 		VoteDao dao = new VoteDao();
 		List<RankVO> rank = dao.memberRank();
 		
+		System.out.println(rank.get(0).getM_name());
+		
 		request.setAttribute("rank", rank);
 		
 	}

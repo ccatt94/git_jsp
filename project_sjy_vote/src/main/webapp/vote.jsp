@@ -7,7 +7,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<style type="text/css">
+header{
+background-color:#0000ff;
+color:white;
+height:70px;
+line-height:70px;
+text-align:center;
+}
+nav{
+background-color:black;
+color:white;
+height:40px;
+line-height:40px;
+text-align:center;
+}
+section{
+magin:0;
+background-color:#d3d3d3;
+color:black;
+min-height:550px;
+}
+footer{
+background-color:black;
+color:white;
+height:50px;
+line-height:50px;
+text-align:center;
+font-size:12px;
+}
+a:link, a:visited{
+color:black;
+text-decoration:none;
+}
+button{
+background-color:white;
+}
+</style>
 <script>
 //폼을 날렸을 때 리턴 false 값이 안넘어가고 true 면 값이 넘어감
 	const handleSubmit = (event) => {
@@ -27,15 +63,29 @@
 
 </head>
 <body>
-	
-	<h1>투표지</h1>
 
-	<table width="500" height="400" cellpadding="0" cellspacing="0" border="1">
-	<form action="vote_ok.do" method="post" onsubmit="handleSubmit(event)">
+	<header>
+		<h1>지역구 의원 투표 프로그램</h1>
+	</header>
+	
+	<nav>
+		<a href=member.do>후보조회</a> &emsp; 
+		<a href=vote.do>투표하기</a> &emsp;
+		<a href=voteList.do>투표검수조회</a> &emsp;
+		<a href=memberRank.do>후보자등수</a> &emsp;
+		<a href=index.do>홈으로</a>
+	</nav>
+	
+	<section>
+	<br>
+	<h2 align="center">투표지</h2>
+
+	<table align="center" width="500" height="400" cellpadding="10" cellspacing="5" border="1">
+	
 		<tr>
 			<td align="center">주민번호</td>
-			<td>&nbsp; 
-				<input type="text" name="v_jumin"> &nbsp; ex)9408282012341
+			<td>
+				<input type="text" name="v_jumin"> &nbsp; ex) 9408282012341
 			</td>
 		</tr>
 
@@ -49,7 +99,7 @@
 		<tr>
 			<td align="center">투표번호</td>
 
-			<td>&nbsp; 
+			<td>
 				<select name=m_no>
 					<option value="" selected disabled>후보 선택</option>
 					<option value="1">기호 1번 김후보</option>
@@ -99,11 +149,14 @@
 			</td>
 
 		</tr>
-	</form>
+	
+	
 	</table>
-
-	
-	
+	<form action="vote_ok.do" method="post" onsubmit="handleSubmit(event)">
+	</form>
+	</section>
+	<footer>
+	</footer>
 
 
 </body>
