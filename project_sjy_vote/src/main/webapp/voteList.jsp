@@ -71,6 +71,12 @@ button {
 	margin: auto;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+		
+	
+</script>
 
 </head>
 <body>
@@ -102,12 +108,12 @@ button {
 			<td align="center">유권자확인</td>
 		</tr>
 		
-		<c:forEach var="vote" items="${voteList}">
+		<c:forEach var="vote" items="${voteList}" varStatus="status">
 		<tr align="center">
 		
 			<td align="center">${vote.v_name}</td>
 			<td align="center">${vote.v_jumin}</td>
-			<td align="center">${vote.v_age}</td>
+			<td align="center">만 ${vote.v_age}세</td>
 			<td align="center">${vote.v_sex}</td>
 			<td align="center">${vote.m_no}</td>
 			<td align="center">${vote.v_time}</td>
