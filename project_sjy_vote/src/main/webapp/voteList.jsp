@@ -8,42 +8,68 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-header{
-background-color:#0000ff;
-color:white;
-height:70px;
-line-height:70px;
-text-align:center;
-}
-nav{
-background-color:black;
-color:white;
-height:40px;
-line-height:40px;
-text-align:center;
-}
-section{
-magin:0;
-background-color:#d3d3d3;
-color:black;
-
-}
-footer{
-background-color:black;
-color:white;
-height:50px;
-line-height:50px;
-text-align:center;
-font-size:12px;
-}
-a:link, a:visited{
-color:black;
-text-decoration:none;
-}
-button{
-background-color:white;
+header {
+	background-color: steelblue;
+	color: white;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
 }
 
+nav {
+	background-color: black;
+	color: white;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+section {
+	magin: 0;
+	background-color: #d3d3d3;
+	color: black;
+}
+
+footer {
+	background-color: black;
+	color: white;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 12px;
+}
+
+table {
+	width: 100%;
+	max-width: 800px;
+	border: 1px solid #dfdfdf;
+	border-collapse: collapse;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+tr, td {
+	border-bottom: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	padding: 10px;
+	background-color: #f4f4f4;
+}
+
+a:link, a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+button {
+	background-color: steelblue;
+	color:white;
+	width: 80px;
+	display: block;
+	margin: auto;
+}
 </style>
 
 </head>
@@ -64,7 +90,7 @@ background-color:white;
 		<br>
 	<h1 align="center">투표검수조회</h1>
 
-	<table align="center" width="800" border="1">
+	<table>
 
 		<tr>
 			<td align="center">성명</td>
@@ -91,8 +117,8 @@ background-color:white;
 		</c:forEach>
 		
 	</table>
-
-	<h4 align="center"><button><a href=index.do>홈으로</a></button></h4>
+	<br>
+	<button onclick="location.href='index.do'">홈으로</button>
 	<br>
 	</section>
 	<footer></footer>

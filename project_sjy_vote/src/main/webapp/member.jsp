@@ -9,39 +9,62 @@
 <title>Insert title here</title>
 <style type="text/css">
 header{
-background-color:#0000ff;
-color:white;
-height:70px;
-line-height:70px;
-text-align:center;
+	background-color:steelblue;
+	color:white;
+	height:70px;
+	line-height:70px;
+	text-align:center;
 }
 nav{
-background-color:black;
-color:white;
-height:40px;
-line-height:40px;
-text-align:center;
+	background-color:black;
+	color:white;
+	height:40px;
+	line-height:40px;
+	text-align:center;
 }
 section{
-magin:0;
-background-color:#d3d3d3;
-color:black;
-min-height:550px;
+	magin:0;
+	background-color:#d3d3d3;
+	color:black;
+	min-height:550px;
 }
 footer{
-background-color:black;
-color:white;
-height:50px;
-line-height:50px;
-text-align:center;
-font-size:12px;
+	background-color:black;
+	color:white;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:12px;
 }
 a:link, a:visited{
-color:black;
-text-decoration:none;
+	color:white;
+	text-decoration:none;
 }
 button{
-background-color:white;
+	background-color:steelblue;
+	color:white;
+	width: 80px;
+	display: block;
+	margin: auto;
+}
+table{
+	width: 100%;
+	max-width:800px;
+	height: 300px;
+	border: 1px solid #dfdfdf;
+	border-collapse: collapse;
+	box-shadow: 0 0 10px rgba(0,0,0,0.15);
+	border-radius: 10px;
+	overflow: hidden;
+	margin-left:auto; 
+	margin-right:auto;
+
+}
+tr, td {
+	border-bottom: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	padding: 10px;
+	background-color: #f4f4f4;
 }
 </style>
 </head>
@@ -63,7 +86,7 @@ background-color:white;
 		<br>
 		<div align=center><h2>지역구 의원 후보 조회</h2></div>
 
-		<table align="center" cellpadding="0" cellspacing="0" border="1">
+		<table>
 			
 			<tr align="center">
 
@@ -102,8 +125,9 @@ background-color:white;
 
 		</table>
 	
-	
-		<h4 align="center"><button><a href=index.do>홈으로</a></button></h4>
+		
+		<br>
+		<button onclick="location.href='index.do'">홈으로</button>
 		
 	</section>
 	

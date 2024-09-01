@@ -25,8 +25,8 @@ public class VoteDao {
 	public VoteDao() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
-//			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+//			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -43,8 +43,8 @@ public class VoteDao {
 		String sql = "select m_no, m_name, m1.p_code,"
 					+ " p_name, p_school, substr(m_jumin,1,6)||'-'||substr(m_jumin,7,7) m_jumin,"
 					+ " m_city, p_tel1, p_tel2, p_tel3"
-					+ " from tbl_member_202005 m1,"
-					+ " tbl_party_202005 p1"
+					+ " from tbl_member m1,"
+					+ " tbl_party p1"
 					+ " where m1.p_code = p1.p_code";
 		
 
@@ -106,7 +106,7 @@ public class VoteDao {
 		PreparedStatement preparedStatement = null;
 		
 		//sql은 컬럼명 대소문자 구분안해서 굳이 안바꿔도 됨
-		String sql = "insert into tbl_vote_202005 (v_jumin, v_name, m_no, v_time, v_area, v_confirm) values (?,?,?,?,?,?)";
+		String sql = "insert into tbl_vote (v_jumin, v_name, m_no, v_time, v_area, v_confirm) values (?,?,?,?,?,?)";
 		
 		int rn = 0;
 		
@@ -161,7 +161,7 @@ public class VoteDao {
         DateTimeFormatter birthdayFormatter = DateTimeFormatter.ofPattern("yyMMdd");
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
 
-		String sql = "select * from tbl_vote_202005";
+		String sql = "select * from tbl_vote";
 		
 
 		try {
@@ -196,7 +196,9 @@ public class VoteDao {
 
                 String age = String.valueOf(Period.between(birthDate, now).getYears());
                 String gender = resultSet.getString("V_JUMIN").length() > 6 && resultSet.getString("V_JUMIN").charAt(6) == '1' ? "남" : "여";
-				String v_confirm = resultSet.getString("v_confirm");
+                String v_time = resultSet.getString("v_time").substring(0, 2) + ":" + resultSet.getString("v_time").substring(2, 4);
+                
+                String v_confirm = resultSet.getString("v_confirm");
 				
 				if(v_confirm.equals("Y")) {
 					v_confirm = "확인";
@@ -204,7 +206,7 @@ public class VoteDao {
 					v_confirm = "미확인";
 				}
 				
-				VoteVO m = new VoteVO(v_name, birthDate.format(outputFormatter), age, gender, resultSet.getString("M_NO"), resultSet.getString("V_TIME"), v_confirm);
+				VoteVO m = new VoteVO(v_name, birthDate.format(outputFormatter), age, gender, resultSet.getString("M_NO"), v_time, v_confirm);
 				
 				voteList.add(m);
 
@@ -242,7 +244,7 @@ public class VoteDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 
-		String sql = "select m1.m_no, m_name, count(*) v_confirm from tbl_vote_202005 v1, tbl_member_202005 m1 "
+		String sql = "select m1.m_no, m_name, count(*) v_confirm from tbl_vote v1, tbl_member m1 "
 				   + "where v1.m_no = m1.m_no and v_confirm='Y' group by m1.m_no, m_name "
 				   + "order by v_confirm desc";
 		

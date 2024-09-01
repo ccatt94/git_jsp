@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 header{
-background-color:#0000ff;
+background-color:steelblue;
 color:white;
 height:70px;
 line-height:70px;
