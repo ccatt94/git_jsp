@@ -144,6 +144,9 @@
                   <a class="nav-link me-4 dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">투표</a>
                   <ul class="dropdown-menu">
                     <li>
+                      <a href="index.do" class="dropdown-item">투표메인</a>
+                    </li>
+                    <li>
                       <a href="member.do" class="dropdown-item">후보조회</a>
                     </li>
                     <li>
