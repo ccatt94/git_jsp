@@ -1019,3 +1019,39 @@ figure.instagram-item img.insta-image {
 .post-navigation:focus svg {
     fill: var(--primary-color);
 }
+
+.masthead{
+	padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0.66) 100%), url("./images/hands.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.masthead h1, .masthead .h1 {
+    font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+    .masthead {
+        height: 100vh;
+        min-height: 40rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+    }
+
+    .masthead p {
+        font-size: 1.20rem;
+    }
+
+    .masthead h1, .masthead .h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .masthead h1, .masthead .h1 {
+        font-size: 4.5rem;
+    }
+}

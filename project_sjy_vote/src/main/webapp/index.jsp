@@ -93,11 +93,6 @@
     <div class="search-popup">
         <div class="search-popup-container">
 
-          <form role="search" method="get" class="search-form" action="">
-            <input type="search" id="search-form" class="search-field" placeholder="Type and press enter" value="" name="s" />
-            <button type="submit" class="search-submit"><svg class="search"><use xlink:href="#search"></use></svg></button>
-          </form>
-
           <h5 class="cat-list-title">Browse Categories</h5>
           
           <ul class="cat-list">
@@ -128,10 +123,10 @@
     </div>
     
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
-      <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
+      <nav id="header-nav" class="navbar navbar-expand-lg px-3">
         <div class="container-fluid">
-          <a class="navbar-project h1 p-2" href="test_index.jsp">
-          	지역구 의원 투표
+          <a class="navbar-project h2 p-2" href="index.do">
+          	제22대 국회의원 선거
           </a>
           <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="navbar-icon">
@@ -140,15 +135,15 @@
           </button>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
             <div class="offcanvas-header px-4 pb-0">
-            <a class="navbar-project h1 p-2" href="test_index.jsp">
-          	지역구 의원 투표
+            <a class="navbar-project h2 p-2" href="index.do">
+          	제22대 국회의원 선거
           </a>
               <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
             </div>
             <div class="offcanvas-body">
               <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link me-4 active" href="index.do">Home</a>
+                  <a class="nav-link me-4 active" href="test_index.jsp">Main</a>
                 <li class="nav-item">
                   <a class="nav-link me-4 link-dark" href="member.do" role="button">후보조회</a>
                 </li>
@@ -168,75 +163,23 @@
       </nav>
     </header>
 	
-	<section id="each-project" class="product-store position-relative padding-large no-padding-top">
-      <div class="container">
-        <div class="row">
-          <div class="display-header d-flex flex-wrap justify-content-between mt-5 pb-5">
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="d-flex justify-content-between pe-2">
-                <div class="product-card position-relative pe-2">
-                  <div class="image-holder">
-                    <img src="resource/images/vote-1-s.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <a href="index.do" class="btn btn-medium btn-black">투표</a>
+	<section>
+	<div class="masthead">
+			<div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                    	<p class="text-white-75 mb-0">우리 손으로 만드는</p>
+                        <h1 class="text-white-75">대한민국</h1>
+                        <hr class="divider" />
                     </div>
-                  </div>
-                </div>
-                <div class="product-card position-relative pe-2">
-                  <div class="image-holder">
-                    <img src="resource/images/product-item2.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <a href="#" class="btn btn-medium btn-black">쇼핑몰</a>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 mb-0">우리의 투표로 만드는 대한민국!</p>
+                        <p class="text-white-75 mb-3">당신의 소중한 한표를 응원합니다!</p>
+                        <a class="btn btn-primary btn-lg" href="vote.do">투표하기</a>
                     </div>
-                  </div>
-                </div>
-                <div class="product-card position-relative pe-2">
-                  <div class="image-holder">
-                    <img src="resource/images/product-item3.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <a href="#" class="btn btn-medium btn-black">골프</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-card position-relative pe-2">
-                  <div class="image-holder">
-                    <img src="resource/images/product-item4.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <a href="#" class="btn btn-medium btn-black">로또</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-card position-relative pe-2">
-                  <div class="image-holder">
-                    <img src="resource/images/product-item5.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <a href="#" class="btn btn-medium btn-black">가위바위보</a>
-                    </div>
-                  </div>
                 </div>
             </div>
-          </div>
-      </div>
-      <div class="swiper-pagination position-absolute text-center"></div>
-    </section> 
-	<section>
-		<a href=member.do>후보조회</a> &emsp; 
-		<a href=vote.do>투표하기</a> &emsp;
-		<a href=voteList.do>투표검수조회</a> &emsp;
-		<a href=memberRank.do>후보자등수</a> &emsp;
-		<a href=index.do>홈으로</a>
+	</div>
 	</section>
 	<footer id="footer" class="overflow-hidden">
       <hr>

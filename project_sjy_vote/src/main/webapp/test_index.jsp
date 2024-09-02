@@ -20,6 +20,7 @@
     <!-- script
     ================================================== -->
     <script src="resource/js/modernizr.js"></script>
+    
   </head>
   <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -120,10 +121,10 @@
     </div>
     
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
-      <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
+      <nav id="header-nav" class="navbar navbar-expand-lg px-3">
         <div class="container-fluid">
-        <h1 class="display-6 text-uppercase text-dark">Five Coding</h1>
-          <a class="navbar-project" href="test_index.jsp">
+          <a class="navbar-project h1 p-2" href="test_index.jsp">
+          	Five Coding
           </a>
           <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="navbar-icon">
@@ -138,7 +139,7 @@
             <div class="offcanvas-body">
               <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link me-4 active" href="#each-project">Home</a>
+                  <a class="nav-link me-4 active" href="test_index.jsp">Home</a>
                 <li class="nav-item dropdown">
                   <a class="nav-link me-4 dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">투표</a>
                   <ul class="dropdown-menu">

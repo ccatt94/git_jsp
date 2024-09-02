@@ -25,8 +25,8 @@ public class VoteDao {
 	public VoteDao() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
-//			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+//			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/tomboy");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
