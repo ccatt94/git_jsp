@@ -233,28 +233,22 @@
     <section id="each-project" class="product-store position-relative padding-large no-padding-top">
       <div class="container">
         <div class="row">
-          <div class="display-header d-flex justify-content-between mt-5 pb-5">
-            <div class="btn-right">
-            </div>
+          <div class="display-header d-flex flex-wrap justify-content-between mt-5 pb-5">
           </div>
         </div>
         <div class="row mt-5">
-          <div class="swiper product-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
+          <div class="d-flex justify-content-between pe-2">
+                <div class="product-card position-relative pe-2">
                   <div class="image-holder">
-                    <img src="resource/images/vote-1.jpg" alt="product-item" class="img-fluid">
+                    <img src="resource/images/vote-1-s.jpg" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
-                      <a href="#" class="btn btn-medium btn-black">투표</a>
+                      <a href="index.do" class="btn btn-medium btn-black">투표</a>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
+                <div class="product-card position-relative pe-2">
                   <div class="image-holder">
                     <img src="resource/images/product-item2.jpg" alt="product-item" class="img-fluid">
                   </div>
@@ -263,16 +257,8 @@
                       <a href="#" class="btn btn-medium btn-black">쇼핑몰</a>
                     </div>
                   </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 11</a>
-                    </h3>
-                    <span class="item-price text-primary">$1100</span>
-                  </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
+                <div class="product-card position-relative pe-2">
                   <div class="image-holder">
                     <img src="resource/images/product-item3.jpg" alt="product-item" class="img-fluid">
                   </div>
@@ -281,16 +267,8 @@
                       <a href="#" class="btn btn-medium btn-black">골프</a>
                     </div>
                   </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 8</a>
-                    </h3>
-                    <span class="item-price text-primary">$780</span>
-                  </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
+                <div class="product-card position-relative pe-2">
                   <div class="image-holder">
                     <img src="resource/images/product-item4.jpg" alt="product-item" class="img-fluid">
                   </div>
@@ -299,16 +277,8 @@
                       <a href="#" class="btn btn-medium btn-black">로또</a>
                     </div>
                   </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 13</a>
-                    </h3>
-                    <span class="item-price text-primary">$1500</span>
-                  </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
+                <div class="product-card position-relative pe-2">
                   <div class="image-holder">
                     <img src="resource/images/product-item5.jpg" alt="product-item" class="img-fluid">
                   </div>
@@ -317,20 +287,12 @@
                       <a href="#" class="btn btn-medium btn-black">가위바위보</a>
                     </div>
                   </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 12</a>
-                    </h3>
-                    <span class="item-price text-primary">$1300</span>
-                  </div>
                 </div>
-              </div>
             </div>
           </div>
-        </div>
       </div>
       <div class="swiper-pagination position-absolute text-center"></div>
-    </section>
+    </section>  
     <footer id="footer" class="overflow-hidden">
       <hr>
       <div id="footer-bottom">
