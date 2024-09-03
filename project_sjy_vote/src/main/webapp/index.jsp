@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="VoTogether" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#BE0000" />
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -90,38 +93,6 @@
       </symbol>
     </svg>  
 
-    <div class="search-popup">
-        <div class="search-popup-container">
-
-          <h5 class="cat-list-title">Browse Categories</h5>
-          
-          <ul class="cat-list">
-            <li class="cat-list-item">
-              <a href="#" title="Mobile Phones">Mobile Phones</a>
-            </li>
-            <li class="cat-list-item">
-              <a href="#" title="Smart Watches">Smart Watches</a>
-            </li>
-            <li class="cat-list-item">
-              <a href="#" title="Headphones">Headphones</a>
-            </li>
-            <li class="cat-list-item">
-              <a href="#" title="Accessories">Accessories</a>
-            </li>
-            <li class="cat-list-item">
-              <a href="#" title="Monitors">Monitors</a>
-            </li>
-            <li class="cat-list-item">
-              <a href="#" title="Speakers">Speakers</a>
-            </li>
-            <li class="cat-list-item">
-              <a href="#" title="Memory Cards">Memory Cards</a>
-            </li>
-          </ul>
-
-        </div>
-    </div>
-    
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
       <nav id="header-nav" class="navbar navbar-expand-lg px-3">
         <div class="container-fluid">
@@ -181,19 +152,18 @@
             </div>
 	</div>
 	</section>
-	<footer id="footer" class="overflow-hidden">
-      <hr>
-      <div id="footer-bottom">
-      <div class="container">
-        <div class="row d-flex flex-wrap justify-content-between">
-            <div class="copyright" align="center">
-              <p>Copyright 2024. Tomsboy Project Five Coding all rights reserved</p>
-            </div>
-        </div>
-      </div>
-    </div>
-    </footer>		
-    
+	
+	
+	
+	<footer id="footer">
+		<div class="row">
+			<div class="copyright" align="center">
+				<p>Copyright 2024. Tomsboy Project Five Coding all rights
+					reserved</p>
+			</div>
+		</div>
+	</footer>
+
 	<script src="resource/js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="resource/js/bootstrap.bundle.min.js"></script>

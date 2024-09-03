@@ -228,7 +228,7 @@
         </div>
       </nav>
     </header>
-    <section id="billboard" class="position-relative overflow-hidden bg-light-blue">
+    <section id="billboard" class="position-relative bg-light-blue">
       <div class="swiper main-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
