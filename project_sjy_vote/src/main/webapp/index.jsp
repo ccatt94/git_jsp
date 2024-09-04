@@ -122,10 +122,10 @@
                   <a class="nav-link me-4 link-dark" href="vote.do" role="button" >투표하기</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4 link-dark" href="vote.do" role="button" >투표검수조회</a>
+                  <a class="nav-link me-4 link-dark" href="voteList.do" role="button" >투표검수조회</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4 link-dark" href="vote.do" role="button" >후보자등수</a>
+                  <a class="nav-link me-4 link-dark" href="memberRank.do" role="button" >후보자등수</a>
                 </li>
               </ul>
             </div>

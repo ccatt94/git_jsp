@@ -71,7 +71,6 @@ CSS STRUCTURE:
 }
 html {
   box-sizing: border-box;
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -80,9 +79,9 @@ body {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  height: 100%;
+  min-height: 100vh;
 }
 p {
   font-size: 1.2em;
@@ -1073,31 +1072,132 @@ figure.instagram-item img.insta-image {
 }
 
 table {
-  caption-side: bottom;
-  border-collapse: collapse;
+  	caption-side: bottom;
+  	border-collapse: collapse;
+  	width: 100%;
+	max-width: 800px;
+	border: 1px solid #dfdfdf;
+	border-collapse: collapse;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 caption {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: var(--bs-secondary-color);
-  text-align: left;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	color: var(--bs-secondary-color);
+	text-align: left;
 }
 
 th {
-  text-align: inherit;
-  text-align: -webkit-match-parent;
+	text-align: inherit;
+	text-align: -webkit-match-parent;
 }
 
-thead,
-tbody,
-tfoot,
-tr,
-td,
-th {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
+thead, tbody, tfoot, tr, td, th {
+	border-color: inherit;
+	border-style: solid;
+	border-width: 0;
+}
+
+thead{
+	font-weight : 900;
+	background-color:#EFFBF5;
 }
 
 
+.table-info:nth-child(odd){
+
+  background-color:#E0F8EC;
+
+}
+
+tbody tr:nth-child(even){
+
+  background-color:#EFFBF5;
+
+}
+
+.memberSection {
+	display:grid;
+	align-items:center;
+	min-height: 100dvh;
+	align-content: center;
+}
+
+.memberTitle{
+	justify-content: center;
+}
+
+.voteListSection {
+	display:grid;
+	padding-top:80px;
+	align-items:center;
+	min-height: 100dvh;
+	align-content: center;
+}
+
+.voteListTitle{
+	justify-content: center;
+}
+
+.memberRankSection {
+	display:grid;
+	padding-top:40px;
+	align-items:center;
+	min-height: 100dvh;
+	align-content: center;
+}
+
+.memberRankTitle{
+	justify-content: center;
+}
+
+.voteSection {
+	display:grid;
+	padding-top:15px;
+	align-items:center;
+	min-height: 100dvh;
+	align-content: center;
+}
+
+.voteTitle{
+	justify-content: center;
+}
+
+.btn {
+	margin:0 20px 0 0;
+}
+
+.votetable {
+  	caption-side: bottom;
+  	border-collapse: collapse;
+  	width: 100%;
+	max-width: 800px;
+	height:550px;
+	border: 1px solid #dfdfdf;
+	border-collapse: collapse;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.votetable:nth-child(odd){
+
+  background-color:#ffffff;
+
+}
+.votetable tr:nth-child(even){
+
+  background-color:#ffffff;
+
+}
+
+.votetable td {
+	padding : 50px;
+}

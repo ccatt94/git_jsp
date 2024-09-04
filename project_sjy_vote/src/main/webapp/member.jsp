@@ -178,10 +178,10 @@ tr, td {
                   <a class="nav-link me-4 link-dark" href="vote.do" role="button" >투표하기</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4 link-dark" href="vote.do" role="button" >투표검수조회</a>
+                  <a class="nav-link me-4 link-dark" href="voteList.do" role="button" >투표검수조회</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4 link-dark" href="vote.do" role="button" >후보자등수</a>
+                  <a class="nav-link me-4 link-dark" href="memberRank.do" role="button" >후보자등수</a>
                 </li>
               </ul>
             </div>
@@ -190,159 +190,61 @@ tr, td {
       </nav>
     </header>
 
-		
-	
-	<section>
-		<div class="memberTable">
-			<div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-black">지역구 의원 후보 조회</h1>
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-0">우리의 투표로 만드는 대한민국!</p>
-                        <p class="text-white-75 mb-3">당신의 소중한 한표를 응원합니다!</p>
-                        <a class="btn btn-primary btn-lg" href="vote.do">투표하기</a>
-                    </div>
-                </div>
-            </div>
-	</div>
-		
-		<div align=center><h2></h2></div>
-
-		<table>
-			
-			
 
 
-
-			<c:forEach var="member" items="${memberList}">
-
-				<tr align="center">
-					<td align="center">${member.m_no}</td>
-					<td align="center">${member.m_name}</td>
-					<td align="center">${member.p_code}</td>
-
-					<td align="center"><c:choose>
-							<c:when test="${member.p_school=='1'}">고졸</c:when>
-							<c:when test="${member.p_school=='2'}">학사</c:when>
-							<c:when test="${member.p_school=='3'}">석사</c:when>
-							<c:otherwise>박사</c:otherwise>
-						</c:choose></td>
-
-					<td align="center">${member.m_jumin}</td>
-					<td align="center">${member.m_city}</td>
-					<td align="center">${member.p_tel}</td>
+	<section class="memberSection">
+		<div class="memberTitle pb-5 d-flex">
+			<h1>지역구 의원 후보 조회</h1>
+		</div>
+		<table class="table table-hover">
+			<thead align="center">
+				<tr>
+					<td scope="col">후보번호</td>
+					<td scope="col">성명</td>
+					<td scope="col">소속정당</td>
+					<td scope="col">학력</td>
+					<td scope="col">주민번호</td>
+					<td scope="col">지역구</td>
+					<td scope="col">대표번호</td>
 				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="member" items="${memberList}">
 
-			</c:forEach>
+					<tr>
+						<td align="center">${member.m_no}</td>
+						<td align="center">${member.m_name}</td>
+						<td align="center">${member.p_code}</td>
 
+						<td align="center"><c:choose>
+								<c:when test="${member.p_school=='1'}">고졸</c:when>
+								<c:when test="${member.p_school=='2'}">학사</c:when>
+								<c:when test="${member.p_school=='3'}">석사</c:when>
+								<c:otherwise>박사</c:otherwise>
+							</c:choose></td>
+
+						<td align="center">${member.m_jumin}</td>
+						<td align="center">${member.m_city}</td>
+						<td align="center">${member.p_tel}</td>
+					</tr>
+
+				</c:forEach>
+			</tbody>
 		</table>
-<div>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">후보번호</th>
-      <th scope="col">성명</th>
-      <th scope="col">소속정당</th>
-      <th scope="col">학력</th>
-      <th scope="col">주민번호</th>
-      <th scope="col">지역구</th>
-      <th scope="col">대표번호</th>
-    </tr>
-  </thead>
-  <tbody>
-  <c:forEach var="member" items="${memberList}">
-  
-    <tr class="table-active">
-      <td align="center">${member.m_no}</td>
-					<td align="center">${member.m_name}</td>
-					<td align="center">${member.p_code}</td>
 
-					<td align="center"><c:choose>
-							<c:when test="${member.p_school=='1'}">고졸</c:when>
-							<c:when test="${member.p_school=='2'}">학사</c:when>
-							<c:when test="${member.p_school=='3'}">석사</c:when>
-							<c:otherwise>박사</c:otherwise>
-						</c:choose></td>
-
-					<td align="center">${member.m_jumin}</td>
-					<td align="center">${member.m_city}</td>
-					<td align="center">${member.p_tel}</td>
-    </tr>
-    
-  </c:forEach>  
-    <tr>
-      <th scope="row">Default</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">Primary</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-secondary">
-      <th scope="row">Secondary</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-success">
-      <th scope="row">Success</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-danger">
-      <th scope="row">Danger</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-warning">
-      <th scope="row">Warning</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-info">
-      <th scope="row">Info</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">Light</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-dark">
-      <th scope="row">Dark</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-  </tbody>
-</table>
-</div>	
 		
-		<br>
-		<button onclick="location.href='index.do'">홈으로</button>
-		
-	</section>
-	
-	<footer id="footer">
-		<div class="row">
-			<div class="copyright" align="center">
-				<!-- <p>Copyright 2024. Tomsboy Project Five Coding all rights
-					reserved</p> -->
+	<div class="homeButton pt-4">
+		<div
+			class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+			<div class="col-lg-8 align-self-baseline">
+				<a class="btn btn-primary btn-lg" href="index.do">Home</a>
 			</div>
 		</div>
-	</footer>
+	</div>
+
+	</section>
+
+	
 
 	<script src="resource/js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
