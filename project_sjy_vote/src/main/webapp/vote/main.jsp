@@ -1,4 +1,4 @@
-<%@page import="edu.ict.prj.vo.VoteVO"%>
+<%@page import="edu.ict.prj.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -7,72 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <style type="text/css">
-header {
-	background-color: steelblue;
-	color: white;
-	height: 70px;
-	line-height: 70px;
-	text-align: center;
-}
 
-nav {
-	background-color: black;
-	color: white;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-}
 
-section {
-	magin: 0;
-	background-color: #d3d3d3;
-	color: black;
-	min-height: 550px;
-}
-
-footer {
-	background-color: black;
-	color: white;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	font-size: 12px;
-}
-
-a:link, a:visited {
-	color: white;
-	text-decoration: none;
-}
-
-button {
-	background-color: steelblue;
-	color: white;
-	width: 80px;
-	display:block;
-	margin: auto;
-}
-table{
-	width: 100%;
-	max-width:500px;
-	height: 300px;
-	border: 1px solid #dfdfdf;
-	border-collapse: collapse;
-	box-shadow: 0 0 10px rgba(0,0,0,0.15);
-	border-radius: 10px;
-	overflow: hidden;
-	margin-left:auto; 
-	margin-right:auto;
-
-}
-tr, td {
-	border-bottom: 1px solid #ffffff;
-	border-left: 1px solid #ffffff;
-	padding: 10px;
-	background-color: #f4f4f4;
-}
-</style> -->
-<title>memberList</title>
+<title>VoteProgram</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,14 +22,15 @@ tr, td {
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/vote_style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- script
     ================================================== -->
-    <script src="resource/js/modernizr.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/js/modernizr.js"></script>
+
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -158,8 +96,8 @@ tr, td {
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
       <nav id="header-nav" class="navbar navbar-expand-lg px-3">
         <div class="container-fluid">
-          <a class="navbar-project h2 p-2" href="index.do">
-          	제22대 국회의원 선거
+          <a class="navbar-project h2 p-2" href="main.do">
+          	지역구 의원 선거
           </a>
           <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="navbar-icon">
@@ -168,15 +106,15 @@ tr, td {
           </button>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
             <div class="offcanvas-header px-4 pb-0">
-            <a class="navbar-project h2 p-2" href="index.do">
-          	제22대 국회의원 선거
+            <a class="navbar-project h2 p-2" href="main.do">
+          	지역구 의원 선거
           </a>
               <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
             </div>
             <div class="offcanvas-body">
               <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link me-4 active" href="test_index.jsp">Main</a>
+                  <a class="nav-link me-4 active" href="${pageContext.request.contextPath}/index.jsp">Main</a>
                 <li class="nav-item">
                   <a class="nav-link me-4 link-dark" href="member.do" role="button">후보조회</a>
                 </li>
@@ -196,48 +134,39 @@ tr, td {
       </nav>
     </header>
 	
-	<section class="memberRankSection">
-		<div class="memberRankTitle p-5 d-flex">
-			<h1>후보자등수</h1>
-		</div>
-		<table class="table table-hover">
-			<thead align="center">
-				<tr>
-					<td scope="col">후보번호</td>
-					<td scope="col">성명</td>
-					<td scope="col">총투표건수</td>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="rank" items="${rank}">
-					<tr align="center">
-
-						<td align="center">${rank.m_no}</td>
-						<td align="center">${rank.m_name}</td>
-						<td align="center">${rank.v_count}</td>
-
-					</tr>
-				</c:forEach>
-			</tbody>	
-		</table>
-		<div class="homeButton pt-4">
-		<div
-			class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-			<div class="col-lg-8 align-self-baseline">
-				<a class="btn btn-primary btn-lg" href="index.do">Home</a>
-			</div>
-		</div>
-		</div>
+	<section>
+	<div class="masthead">
+			<div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                    	<p class="text-white-75 mb-0">우리 손으로 만드는</p>
+                        <h1 class="text-white-75">대한민국</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 mb-0">우리의 투표로 만드는 대한민국!</p>
+                        <p class="text-white-75 mb-3">당신의 소중한 한표를 응원합니다!</p>
+                        <a class="btn btn-primary btn-lg" href="vote.do">투표하기</a>
+                    </div>
+                </div>
+            </div>
+	</div>
 	</section>
 	
 	
-	<script src="resource/js/jquery-1.11.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="resource/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="resource/js/plugins.js"></script>
-    <script type="text/javascript" src="resource/js/script.js"></script>
 	
+	<footer id="footer">
+		<div class="row">
+			<div class="copyright" align="center">
+				<p>Copyright 2024. Tomsboy Project Five Coding all rights reserved</p>
+			</div>
+		</div>
+	</footer>
 
-
+	<script src="${pageContext.request.contextPath}/resource/js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/plugins.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/script.js"></script>
 </body>
 </html>

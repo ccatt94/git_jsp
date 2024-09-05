@@ -177,7 +177,7 @@ tr, td {
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resource/style.css">
+	href="${pageContext.request.contextPath}/resource/css/vote_style.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -189,12 +189,9 @@ tr, td {
     ================================================== -->
 <script src="resource/js/modernizr.js"></script>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar"
-	data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-	tabindex="0">
+<body >
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <svg xmlns="http://www.w3.org/2000/svg" id="chevron-left"
-			viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" id="chevron-left" viewBox="0 0 16 16">
         <path fill-rule="evenodd"
 				d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
       </svg>
@@ -292,10 +289,10 @@ tr, td {
     </svg>
 
 	<header id="header"
-		class="site-header header-scrolled position-fixed text-black bg-light">
+		class="site-header position-fixed text-black bg-light">
 		<nav id="header-nav" class="navbar navbar-expand-lg px-3">
 			<div class="container-fluid">
-				<a class="navbar-project h2 p-2" href="index.do"> 제22대 국회의원 선거 </a>
+				<a class="navbar-project h2 p-2" href="main.do"> 지역구 의원 선거 </a>
 				<button class="navbar-toggler d-flex d-lg-none order-3 p-2"
 					type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar"
 					aria-controls="bdNavbar" aria-expanded="false"
@@ -307,8 +304,7 @@ tr, td {
 				<div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar"
 					aria-labelledby="bdNavbarOffcanvasLabel">
 					<div class="offcanvas-header px-4 pb-0">
-						<a class="navbar-project h2 p-2" href="index.do"> 제22대 국회의원 선거
-						</a>
+						<a class="navbar-project h2 p-2" href="main.do"> 지역구 의원 선거</a>
 						<button type="button" class="btn-close btn-close-black"
 							data-bs-dismiss="offcanvas" aria-label="Close"
 							data-bs-target="#bdNavbar"></button>
@@ -317,7 +313,7 @@ tr, td {
 						<ul id="navbar"
 							class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
 							<li class="nav-item"><a class="nav-link me-4 active"
-								href="test_index.jsp">Main</a>
+								href="${pageContext.request.contextPath}/index.jsp">Main</a>
 							<li class="nav-item"><a class="nav-link me-4 link-dark"
 								href="member.do" role="button">후보조회</a></li>
 							<li class="nav-item"><a class="nav-link me-4 link-dark"
@@ -335,7 +331,7 @@ tr, td {
 
 	<section class="voteSection">
 		<div class="voteTitle p-5 d-flex">
-			<h1>투표지</h1>
+			<h1>투표용지</h1>
 		</div>
 		<form id="voteForm" action="vote_ok.do" method="post"
 			onsubmit="return formCheck()">
@@ -385,9 +381,9 @@ tr, td {
 
 					<tr>
 						<td scope="col">유권자확인</td>
-						<td scope="col"><input type="radio" id="check" value="Y"
-							name="v_confirm">확인 <input type="radio" value="N"
-							id="non-check" name="v_confirm">미확인</td>
+						<td scope="col">
+							<input type="radio" id="check" value="Y" name="v_confirm">확인 &nbsp;
+							<input type="radio" value="N" id="non-check" name="v_confirm">미확인</td>
 					</tr>
 				</tbody>
 			</table>

@@ -52,27 +52,30 @@ public class VoteController extends HttpServlet {
 		String uri = request.getRequestURI(); //project_sjy_vote/list.do
 		String contextPath = request.getContextPath(); //project_sjy_vote
 		String com = uri.substring(contextPath.length());
+		
+		// /project_sjy_vote/vote/member.do:/project_sjy_vote:/vote/member.do
 		System.out.println(uri + ":" + contextPath + ":" + com);
 		
-		if(com.equals("/index.do")) {
+		if(com.equals("/vote/main.do")) {
 			command = new VoteMemberCommand();
 			command.execute(request, response);
-			viewPage = "index.jsp";
-		}else if(com.equals("/member.do")) {
+			viewPage = "main.jsp";
+		}else if(com.equals("/vote/member.do")) {
+			System.out.println("아아아");
 			command = new VoteMemberCommand();
 			command.execute(request, response);
 			viewPage = "member.jsp";
-		}else if(com.equals("/vote.do")) {
+		}else if(com.equals("/vote/vote.do")) {
 			viewPage = "vote.jsp";
-		}else if(com.equals("/vote_ok.do")) {
+		}else if(com.equals("/vote/vote_ok.do")) {
 			command = new VoteInsertCommand();
 			command.execute(request, response);
-			viewPage = "index.do";
-		}else if(com.equals("/voteList.do")) {
+			viewPage = "main.do";
+		}else if(com.equals("/vote/voteList.do")) {
 			command = new VoteListCommand();
 			command.execute(request, response);
 			viewPage = "voteList.jsp";
-		}else if(com.equals("/memberRank.do")) {
+		}else if(com.equals("/vote/memberRank.do")) {
 			command = new VoteRankCommand();
 			command.execute(request, response);
 			viewPage = "memberRank.jsp";

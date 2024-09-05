@@ -1,84 +1,70 @@
-<%@page import="edu.ict.prj.vo.VoteVO"%>
+<%@page import="edu.ict.prj.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <!-- <style type="text/css">
-header {
-	background-color: steelblue;
-	color: white;
-	height: 70px;
-	line-height: 70px;
-	text-align: center;
+header{
+	background-color:steelblue;
+	color:white;
+	height:70px;
+	line-height:70px;
+	text-align:center;
 }
-
-nav {
-	background-color: black;
-	color: white;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
+nav{
+	background-color:black;
+	color:white;
+	height:40px;
+	line-height:40px;
+	text-align:center;
 }
-
-section {
-	magin: 0;
-	background-color: #d3d3d3;
-	color: black;
+section{
+	magin:0;
+	background-color:#d3d3d3;
+	color:black;
+	min-height:550px;
 }
-
-footer {
-	background-color: black;
-	color: white;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	font-size: 12px;
+footer{
+	background-color:black;
+	color:white;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:12px;
 }
-
-table {
-	width: 100%;
-	max-width: 800px;
-	border: 1px solid #dfdfdf;
-	border-collapse: collapse;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-	border-radius: 10px;
-	overflow: hidden;
-	margin-left: auto;
-	margin-right: auto;
+a:link, a:visited{
+	color:white;
+	text-decoration:none;
 }
-
-tr, td {
-	border-bottom: 1px solid #ffffff;
-	border-left: 1px solid #ffffff;
-	padding: 10px;
-	background-color: #f4f4f4;
-}
-
-a:link, a:visited {
-	color: white;
-	text-decoration: none;
-}
-
-button {
-	background-color: steelblue;
+button{
+	background-color:steelblue;
 	color:white;
 	width: 80px;
 	display: block;
 	margin: auto;
 }
+table{
+	width: 100%;
+	max-width:800px;
+	height: 300px;
+	border: 1px solid #dfdfdf;
+	border-collapse: collapse;
+	box-shadow: 0 0 10px rgba(0,0,0,0.15);
+	border-radius: 10px;
+	overflow: hidden;
+	margin-left:auto; 
+	margin-right:auto;
+
+}
+tr, td {
+	border-bottom: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	padding: 10px;
+	background-color: #f4f4f4;
+} 
 </style> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script type="text/javascript">
-	
-		
-	
-</script>
-
-
 <title>memberList</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -92,7 +78,7 @@ button {
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/vote_style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,6 +86,7 @@ button {
     <!-- script
     ================================================== -->
     <script src="resource/js/modernizr.js"></script>
+
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -165,8 +152,8 @@ button {
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
       <nav id="header-nav" class="navbar navbar-expand-lg px-3">
         <div class="container-fluid">
-          <a class="navbar-project h2 p-2" href="index.do">
-          	제22대 국회의원 선거
+          <a class="navbar-project h2 p-2" href="main.do">
+          	지역구 의원 선거
           </a>
           <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="navbar-icon">
@@ -175,15 +162,15 @@ button {
           </button>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
             <div class="offcanvas-header px-4 pb-0">
-            <a class="navbar-project h2 p-2" href="index.do">
-          	제22대 국회의원 선거
+            <a class="navbar-project h2 p-2" href="main.do">
+          	지역구 의원 선거
           </a>
               <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
             </div>
             <div class="offcanvas-body">
               <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link me-4 active" href="test_index.jsp">Main</a>
+                  <a class="nav-link me-4 active" href="${pageContext.request.contextPath}/index.jsp">Main</a>
                 <li class="nav-item">
                   <a class="nav-link me-4 link-dark" href="member.do" role="button">후보조회</a>
                 </li>
@@ -202,50 +189,63 @@ button {
         </div>
       </nav>
     </header>
-	<section class="voteListSection">
-		<div class="voteListTitle p-5 d-flex">
-			<h1>투표 검수 조회</h1>
+
+
+
+	<section class="memberSection">
+		<div class="memberTitle p-5 d-flex">
+			<h1>지역구 의원 후보 조회</h1>
 		</div>
 		<table class="table table-hover">
 			<thead align="center">
 				<tr>
-					<td scope="col">성명</td>
-					<td scope="col">생년월일</td>
-					<td scope="col">나이</td>
-					<td scope="col">성별</td>
 					<td scope="col">후보번호</td>
-					<td scope="col">투표시간</td>
-					<td scope="col">유권자확인</td>
+					<td scope="col">성명</td>
+					<td scope="col">소속정당</td>
+					<td scope="col">학력</td>
+					<td scope="col">주민번호</td>
+					<td scope="col">지역구</td>
+					<td scope="col">대표번호</td>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="vote" items="${voteList}" varStatus="status">
-					<tr align="center">
+				<c:forEach var="member" items="${memberList}">
 
-						<td align="center">${vote.v_name}</td>
-						<td align="center">${vote.v_jumin}</td>
-						<td align="center">만 ${vote.v_age}세</td>
-						<td align="center">${vote.v_sex}</td>
-						<td align="center">${vote.m_no}</td>
-						<td align="center">${vote.v_time}</td>
-						<td align="center">${vote.v_confirm}</td>
+					<tr>
+						<td align="center">${member.m_no}</td>
+						<td align="center">${member.m_name}</td>
+						<td align="center">${member.p_code}</td>
 
+						<td align="center"><c:choose>
+								<c:when test="${member.p_school=='1'}">고졸</c:when>
+								<c:when test="${member.p_school=='2'}">학사</c:when>
+								<c:when test="${member.p_school=='3'}">석사</c:when>
+								<c:otherwise>박사</c:otherwise>
+							</c:choose></td>
+
+						<td align="center">${member.m_jumin}</td>
+						<td align="center">${member.m_city}</td>
+						<td align="center">${member.p_tel}</td>
 					</tr>
+
 				</c:forEach>
 			</tbody>
 		</table>
 
-		<div class="homeButton pt-4">
+		
+	<div class="homeButton pt-4">
 		<div
 			class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
 			<div class="col-lg-8 align-self-baseline">
-				<a class="btn btn-primary btn-lg" href="index.do">Home</a>
+				<a class="btn btn-primary btn-lg" href="main.do">Home</a>
 			</div>
 		</div>
 	</div>
-	
+
 	</section>
+
 	
+
 	<script src="resource/js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="resource/js/bootstrap.bundle.min.js"></script>
