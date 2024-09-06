@@ -61,7 +61,6 @@ public class VoteController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "main.jsp";
 		}else if(com.equals("/vote/member.do")) {
-			System.out.println("아아아");
 			command = new VoteMemberCommand();
 			command.execute(request, response);
 			viewPage = "member.jsp";

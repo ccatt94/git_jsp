@@ -34,11 +34,12 @@
                             }
                         %>
                         <h2>사용자 선택: <%= userChoice %></h2>
-                        <img src="${pageContext.request.contextPath}/resource/images/<%= userChoice %>.png" alt="<%= userChoice %>" style="width: 100px;">
+                        <img src="images/<%= userChoice %>.png" alt="<%= userChoice %>" style="width: 100px;">
                         <h2>컴퓨터 선택: <%= computerChoice %></h2>
-                        <img src="${pageContext.request.contextPath}/resource/images/<%= computerChoice %>.png" alt="<%= computerChoice %>" style="width: 100px;">
+                        <img src="images/<%= computerChoice %>.png" alt="<%= computerChoice %>" style="width: 100px;">
                         <h2 class="mt-4"><%= result %></h2>
                         <a href="index.jsp" class="btn btn-primary mt-4">다시 하기</a>
+                        <a href="http://192.168.0.6:8282/Project_FiveCoding2/index.jsp" class="btn btn-secondary mt-4">홈으로</a> <!-- 홈으로 버튼 추가 -->
                     </div>
                 </div>
             </div>
@@ -51,5 +52,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

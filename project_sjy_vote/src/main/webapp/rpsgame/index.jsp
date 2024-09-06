@@ -20,15 +20,15 @@
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-outline-primary">
                                     <input type="radio" name="userChoice" value="rock" required>
-                                    <img src="${pageContext.request.contextPath}/resource/images/rock.png" alt="바위" style="width: 100px;">
+                                    <img src="images/rock.png" alt="바위" style="width: 100px;">
                                 </label>
                                 <label class="btn btn-outline-primary">
                                     <input type="radio" name="userChoice" value="scissor">
-                                    <img src="${pageContext.request.contextPath}/resource/images/scissor.png" alt="가위" style="width: 100px;">
+                                    <img src="images/scissor.png" alt="가위" style="width: 100px;">
                                 </label>
                                 <label class="btn btn-outline-primary">
                                     <input type="radio" name="userChoice" value="paper">
-                                    <img src="${pageContext.request.contextPath}/resource/images/paper.png" alt="보" style="width: 100px;">
+                                    <img src="images/paper.png" alt="보" style="width: 100px;">
                                 </label>
                             </div>
                             <div class="mt-4">

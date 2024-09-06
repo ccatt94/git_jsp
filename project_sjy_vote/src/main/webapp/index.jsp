@@ -134,6 +134,8 @@
 		<div class="container">
 
 			<div class="row">
+			
+			
 
 				<div class="col-lg-4 col-md-6 col-sm-12 pb-3">
 					<div>
@@ -145,7 +147,7 @@
 							</div>
 							<div class="cart-concern position-absolute">
 								<div class="cart-button d-flex">
-									<a href="vote/vote.do" class="btn btn-medium btn-black">투표</a>
+									<a href="vote/main.do" class="btn btn-medium btn-black">투표</a>
 								</div>
 							</div>
 						</div>
@@ -197,7 +199,7 @@
 							</div>
 							<div class="cart-concern position-absolute">
 								<div class="cart-button d-flex">
-									<a href="#" class="btn btn-medium btn-black">로또 게임</a>
+									<a href="lotto/index.jsp" class="btn btn-medium btn-black">로또 게임</a>
 								</div>
 							</div>
 						</div>
@@ -210,7 +212,7 @@
 							<div class="image-holder">
 								<img
 									src="${pageContext.request.contextPath}/resource/images/rs1.jpg"
-									alt="product-item" class="img-fluid">
+									alt="rs1" class="img-fluid">
 							</div>
 							<div class="cart-concern position-absolute">
 								<div class="cart-button d-flex">
